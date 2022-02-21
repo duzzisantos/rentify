@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Roboto&family=Roboto+Serif:wght@300&family=Ubuntu:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Roboto&family=Roboto+Serif:wght@300&family=Ubuntu:wght@300&display=swap");
 
-*{
+* {
   font-family: "Roboto", sans-serif;
 }
 .App {
@@ -28,32 +28,33 @@
   color: gray;
 }
 
-#display-results{
+#display-results {
   height: 657px;
   background-color: white;
   width: 100%;
   color: gray;
 }
 
-#hero-text{
+#hero-text {
   height: 80%;
   text-align: center;
 }
 
-h1{
+h1 {
   color: white;
   padding-top: 80px;
   font-size: clamp(20px, 55px, 60px);
 }
 
-h4, h6{
+h4,
+h6 {
   padding-top: 10px;
   margin-left: 25px;
   font-size: clamp(10px, 15px, 20px);
   color: rgba(0, 0, 0, 0.705);
 }
 
-.filter-property span{
+.filter-property span {
   margin-left: 25px;
   margin-top: 10px;
   color: rgba(0, 0, 0, 0.705);
@@ -62,19 +63,19 @@ h4, h6{
   font-size: 14px;
 }
 
-.filter-property label{
+.filter-property label {
   display: inline-block;
   margin-left: 22px;
   font-size: 13px;
   color: rgba(0, 0, 0, 0.705);
 }
 
-.filter-property input[type=checkbox]{
+.filter-property input[type="checkbox"] {
   display: inline-block;
   margin-left: 5px;
 }
 
-#search-btn{
+#search-btn {
   background-color: transparent;
   border: 1px solid black;
   color: rgba(0, 0, 0, 0.705);
@@ -88,40 +89,46 @@ h4, h6{
   margin-bottom: 20px;
 }
 
-#search-btn:hover{
+#search-btn:hover {
   border: 1px solid rgb(33, 2, 43);
   color: rgb(33, 2, 43);
 }
 
-
-.link{
+.link {
   text-decoration-line: none;
   color: white;
   margin: 10px;
 }
 
-.link:hover{
+.link:hover {
   color: gray;
 }
 
-.admin-container{
+.admin-container {
   height: 600px;
-  padding-top: 80px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
 }
 
-.admin-container h4, .admin-container h6{
+.admin-container h2,
+.admin-container h6 {
   text-align: center;
 }
 
-.admin-container form{
+.admin-container h2{
+  background-color: rgb(33, 2, 43);
+  color: whitesmoke;
+  padding: 25px;
+}
+
+.admin-container form {
   padding-top: 20px;
   margin-left: 0;
   display: block;
 }
 
-.admin-container input{
+.admin-container input {
   display: block;
   width: 300px;
   margin-left: 39%;
@@ -129,15 +136,15 @@ h4, h6{
   text-indent: 5px;
 }
 
-.admin-container label, .admin-container span{
+.admin-container label,
+.admin-container span {
   display: block;
   font-size: small;
   margin-left: 39%;
   margin-top: 10px;
 }
 
-
-#admin-btn{
+#admin-btn {
   border: 1px solid rgba(0, 0, 0, 0.705);
   border-radius: 10px;
   margin-bottom: 15px;
@@ -149,31 +156,49 @@ h4, h6{
   margin-left: 39%;
 }
 
-#admin-btn:hover{
- border: 1px solid rgb(33, 2, 43);
- color: rgb(33, 2, 43);
+#admin-btn:hover {
+  border: 1px solid rgb(33, 2, 43);
+  color: rgb(33, 2, 43);
 }
 
-
-.display-data{
+.display-data {
   height: fit-content;
-  background-color: azure;
+  background-color: rgb(33, 2, 43);
+  padding-top: 80px;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
 }
 
-.photos{
+.display-data h2,
+.display-data h6 {
+  text-align: center;
+  color: whitesmoke;
+}
+
+.photos {
   margin-top: 5px;
 }
 
-.photos::placeholder{
+.photos::placeholder {
   font-size: small;
   text-indent: 5px;
 }
 
-#search{
+#search {
   margin-bottom: 15px;
+  width: 300px;
+  margin-left: 38.5%;
+  /* margin-left: 19%; * for media query max-width 550px */
 }
 
-#search::placeholder{
+#search::placeholder {
   font-size: small;
   text-indent: 5px;
+}
+
+.database{
+  height: fit-content;
+  background-color: azure;
+  margin-top: 10px;
 }

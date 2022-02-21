@@ -4,6 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import qs from "qs";
 
+//Material UI Components
+
 const Admins = () => {
   const [createNew, setCreateNew] = useState({
     propertyID: 0,
@@ -37,7 +39,7 @@ const Admins = () => {
   };
   return (
     <div className="admin-container">
-      <h4>Database Management System</h4>
+      <h2>Create new property</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label htmlFor="propID">Property ID:</label>
         <input
@@ -185,18 +187,6 @@ const Admins = () => {
           Create property
         </button>
       </form>
-      <hr></hr>
-
-      <section className="display-data">
-        <h4>Manage Property Database</h4>
-        <h6>Read, update or delete data</h6>
-        <input
-          type="search"
-          id="search"
-          name="search"
-          placeholder="Filter items"
-        ></input>
-      </section>
     </div>
   );
 };
