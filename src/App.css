@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Roboto&family=Roboto+Serif:wght@300&family=Ubuntu:wght@300&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Poppins:wght@200;300&family=Roboto&family=Roboto+Serif:wght@300&family=Ubuntu:wght@300&display=swap");
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 .App {
   display: flex;
   flex-direction: column;
   height: fit-content;
+  width: 100%;
 }
 
 .hero {
@@ -104,28 +104,58 @@ h6 {
   color: gray;
 }
 
+tr .link{
+  text-decoration-line: none;
+  color: rgba(0, 0, 0, 0.705);
+  margin: 10px;
+}
+
+tr .link:hover {
+  color: rgb(33, 2, 43);
+}
+
 .admin-container {
   height: 600px;
-  padding-top: 60px;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.edit-container {
+  height: fit-content;
+  width: fit-content;
+  padding-top: 0px;
   display: flex;
   flex-direction: column;
 }
 
+.edit-container form{
+  width: fit-content;
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
+
 .admin-container h2,
-.admin-container h6 {
+.admin-container h6,
+.update-container h6 {
   text-align: center;
 }
 
-.admin-container h2{
-  background-color: rgb(33, 2, 43);
-  color: whitesmoke;
+.admin-container h2 {
+  color: rgba(0, 0, 0, 0.705);
   padding: 25px;
 }
 
 .admin-container form {
-  padding-top: 20px;
+  padding-top: 00px;
   margin-left: 0;
   display: block;
+  background-color: azure;
 }
 
 .admin-container input {
@@ -189,16 +219,267 @@ h6 {
   margin-bottom: 15px;
   width: 300px;
   margin-left: 38.5%;
+  border: 1px solid whitesmoke;
+  outline: none;
   /* margin-left: 19%; * for media query max-width 550px */
 }
 
 #search::placeholder {
   font-size: small;
-  text-indent: 5px;
+  text-align: center;
 }
 
-.database{
+input {
+  outline: none;
+}
+.database {
   height: fit-content;
   background-color: azure;
   margin-top: 10px;
 }
+
+#delete {
+  background-color: transparent;
+  border: 1px solid #eb5e55;
+  color: black;
+  border-radius: 5px;
+}
+
+#update {
+  background-color: transparent;
+  border: 1px solid #39a2ae;
+  color: black;
+  border-radius: 5px;
+}
+
+#update-wrapper {
+  height: fit-content;
+  width: 100%;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  font-size: small;
+}
+
+#update-form {
+  display: inline-block;
+  margin-left: 30px;
+}
+#update-form form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+}
+#update-form form::placeholder {
+  text-indent: 5px;
+  font-size: small;
+}
+#data-reference {
+  width: 950px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+#data-reference ol li {
+  margin-bottom: 12px;
+}
+#update-dialog input {
+  width: 300px;
+  margin-top: 3px;
+  display: block;
+}
+
+#dialog-close-btn {
+  display: inline-block;
+  width: fit-content;
+  margin-left: auto;
+  color: #eb5e55;
+  font-weight: 600;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+#final-update {
+  background-color: rgb(33, 2, 43);
+  border: 1px solid transparent;
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+h4,
+#display-results span {
+  text-align: center;
+}
+
+#display-results {
+  width: 100%;
+  height: fit-content;
+  border: 1px solid azure;
+}
+
+.one-result {
+  width: 100%;
+  height: fit-content;
+  border: 1px solid whitesmoke;
+}
+
+.image-holder {
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid whitesmoke;
+  display: flex;
+  flex-direction: row;
+  margin-left: 80px;
+}
+
+.image-holder img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 140px;
+  width: 185px;
+  margin: 5px;
+  border: 1px solid whitesmoke;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s;
+}
+
+.image-holder img:hover {
+  transform: scale(1.3);
+}
+tr img {
+  height: 30px;
+  width: 40px;
+  border: 1px solid whitesmoke;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s;
+}
+
+tr img:hover {
+  transform: scale(3);
+}
+
+.primary-details li {
+  font-size: small;
+  margin-left: 60px;
+}
+.primary-details li:nth-child(1) {
+  margin-top: 10px;
+}
+.amenities li {
+  list-style-type: none;
+  display: inline-block;
+  justify-content: space-between;
+  margin: 8px;
+  margin-left: 50px;
+  font-size: small;
+}
+
+#booking {
+  border: 1px solid rgb(33, 2, 43);
+  color: rgb(33, 2, 43);
+  background-color: transparent;
+  margin-left: 3px;
+  border-radius: 5px;
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+#isAvailable {
+  background-color: rgb(21, 122, 21);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: whitesmoke;
+  font-size: small;
+  margin-bottom: 5px;
+  margin-left: 80px;
+}
+
+.account-display {
+  margin-top: 200px;
+  margin-left: 35%;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 400px;
+  background-color: rgb(33, 2, 43);
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+  /* margin-left: 36%;
+  margin-top: calc(37% / 5); */
+}
+
+.account-display .account-nav {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-left: 210px;
+}
+
+.account-display .account-nav .links {
+  text-decoration-line: none;
+  color: whitesmoke;
+  margin-left: 20px;
+  font-size: small;
+}
+
+.account-nav .links:hover {
+  color: gray;
+}
+
+.account-form-wrapper {
+  height: 200px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(33, 2, 43);
+  color: whitesmoke;
+  /* border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px; */
+}
+
+.account-form-wrapper h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.account-form-wrapper form{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.account-form-wrapper input {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.account-form-wrapper button {
+  margin: 20px 10px 0px 0px;
+  width: 30%;
+  border: 1px solid whitesmoke;
+  background-color: transparent;
+  border-radius: 50px;
+  color: whitesmoke;
+}
+
+.account-form-wrapper .account-nav .links {
+  color: whitesmoke;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.list-wrapper{
+  padding-top: 120px;
+  width: fit-content;
+  height: fit-content;
+}
+

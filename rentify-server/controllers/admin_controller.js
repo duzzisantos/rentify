@@ -12,6 +12,7 @@ exports.create = (req, res) => {
     propertyID: req.body.propertyID,
     propertyName: req.body.propertyName,
     address: req.body.address,
+    district: req.body.district,
     price: req.body.price,
     photos1: req.body.photos1,
     photos2: req.body.photos2,
@@ -55,10 +56,10 @@ exports.findAll = (req, res) => {
     });
 };
 
-//Read one
+// Read one
 
 exports.findOne = (req, res) => {
-  const propertyID = req.params.propertyID;
+  const propertyID = req.params.id;
   Property.findById(propertyID)
     .then((data) => {
       if (!data) {
@@ -78,53 +79,58 @@ exports.findOne = (req, res) => {
     });
 };
 
+//Read by ID
+
+// exports.findOne = (req, res, next) => {
+//   Property.findById(req.params.id, (error, data) => {
+//     if (error) {
+//       return next(error);
+//     } else {
+//       res.json(data);
+//     }
+//   });
+// };
 //Update
 
 exports.update = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({
-      message: "You must enter something!",
-    });
-  }
-  const propertyID = req.params.propertyID;
-  Property.findByIdAndUpdate(propertyID, req.body, { useFindAndMoodify: false })
-    .then((data) => {
-      if (!data) {
-        res
-          .status(500)
-          .send({ message: `Cannot update property with id ${propertyID}` });
+  Property.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: req.body,
+    },
+    (err, data, next) => {
+      if (err) {
+        console.log(err);
+        return next(err);
       } else {
-        res.status(200).send({ message: "Property was updated successfully" });
+        res.json({
+          message: data,
+        });
+        console.log("Successfully updated property.");
       }
-    })
-    .catch((err) => {
-      res
-        .status(500)
-        .send({ message: `Error updating property ${propertyID}` });
-    });
+    }
+  );
 };
 
 //Delete
 
 exports.delete = (req, res) => {
-  const propertyID = req.params.propertyID;
-  Property.findOneAndRemove(propertyID)
+  const id = req.params.id;
+  Property.findByIdAndRemove(id)
     .then((data) => {
       if (!data) {
         res
           .status(404)
-          .send({ message: `Cannot delete property with id: ${propertyID}` });
+          .send({ message: `Cannot delete property with id: ${id}` });
       } else {
         res.status(200).send({
-          message: `Property ${propertyID} was deleted successfully.`,
+          message: `Property ${id} was deleted successfully.`,
         });
       }
     })
     .catch((err) => {
       if (err) {
-        res
-          .status(500)
-          .send({ message: `Error deleting property ${propertyID}` });
+        res.status(500).send({ message: `Error deleting property ${id}` });
       }
     });
 };

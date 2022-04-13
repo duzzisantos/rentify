@@ -12,9 +12,9 @@ const NavBarComponent = () => {
           <Logo />
           <Nav className="me-auto">
             <Nav><Link to="home" className="link">Home</Link></Nav>
-            <Nav><Link to="account" className="link">My Account</Link></Nav>
+            <Nav><Link to="account/signup" className="link">My Account</Link></Nav>
             <Nav><Link to="admin" className="link">Create</Link></Nav>
-            <Nav><Link to="listings" className="link">Manage</Link></Nav>
+            <Nav><Link to="listings" className="link">Read & Delete</Link></Nav>
           </Nav>
         </Container>
       </Navbar>

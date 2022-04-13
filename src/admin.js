@@ -11,6 +11,7 @@ const Admins = () => {
     propertyID: 0,
     propertyName: "",
     address: "",
+    district: "",
     price: "",
     photos1: "",
     photos2: "",
@@ -29,7 +30,6 @@ const Admins = () => {
     axios
       .post("http://localhost:4000/api/properties", qs.stringify(createNew))
       .then((response) => {
-        console.log(response.data);
         console.log(response.status);
       })
       .catch((err) => {
@@ -39,7 +39,7 @@ const Admins = () => {
   };
   return (
     <div className="admin-container">
-      <h2>Create new property</h2>
+      <h2>Create new listing</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label htmlFor="propID">Property ID:</label>
         <input
@@ -68,6 +68,16 @@ const Admins = () => {
           value={createNew.address}
           onChange={(event) =>
             setCreateNew({ ...createNew, address: event.target.value })
+          }
+          name="address"
+        />
+        <label htmlFor="district">District:</label>
+        <input
+          type="text"
+          id="district"
+          value={createNew.district}
+          onChange={(event) =>
+            setCreateNew({ ...createNew, district: event.target.value })
           }
           name="address"
         />
