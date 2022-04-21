@@ -5,9 +5,10 @@ import { Route, Routes } from "react-router-dom";
 import Homepage from "./home";
 import Account from "./account";
 import Admins from "./admin";
-// import Listings from "./listings";
 import NavBarComponent from "./navbar";
-import Listings from "./tablehead";
+import Tables from "./tables";
+import EditProperty from "./edit-property";
+import Booking from "./booking"
 
 
 function App() {
@@ -15,11 +16,13 @@ function App() {
     <div className="App">
       <NavBarComponent />
       <Routes>
-        <Route path="/*" element={<Account></Account>} />
-        <Route path="account/*" element={<Account></Account>} />
-        <Route path="home/*" element={<Homepage></Homepage>} />
-        <Route path="admin" element={<Admins></Admins>} />
-        <Route path="listings/*" element={<Listings></Listings>} />
+        <Route path="/*" element={<Account/>} />
+        <Route path="account/*" element={<Account/>} />
+        <Route path="home/*" element={<Homepage/>} />
+        <Route path="admin" element={<Admins />}/>
+        <Route path="tables/*" element={<Tables/>} />
+        <Route path="edit-property/:ID" element={<EditProperty/>}/>
+        <Route path="booking/:ID" element={<Booking/>}/>
       </Routes>
     </div>
   );

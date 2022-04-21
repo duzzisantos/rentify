@@ -3,7 +3,7 @@ module.exports = (mongoose) => {
     "property",
     mongoose.Schema(
       {
-        propertyID: Number,
+        ID: Number,
         propertyName: String,
         address: String,
         district: String,

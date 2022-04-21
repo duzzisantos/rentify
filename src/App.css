@@ -3,14 +3,14 @@
   font-family: "Nunito Sans", sans-serif;
 }
 .App {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   height: fit-content;
   width: 100%;
 }
 
 .hero {
-  height: calc(0.5 * 657px);
+  height: calc(0.25 * 657px);
   background-color: rgb(33, 2, 43);
   width: 100%;
   padding-top: 80px;
@@ -26,8 +26,15 @@
   background-color: azure;
   width: 100%;
   color: gray;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  padding-top: 40px;
 }
 
+.filter-property input {
+  text-align: center;
+}
 #display-results {
   height: 657px;
   background-color: white;
@@ -42,7 +49,7 @@
 
 h1 {
   color: white;
-  padding-top: 80px;
+  padding-top: 0px;
   font-size: clamp(20px, 55px, 60px);
 }
 
@@ -100,11 +107,15 @@ h6 {
   margin: 10px;
 }
 
+.links{
+  color: rgb(33, 2, 43);
+  text-decoration: none;
+}
 .link:hover {
   color: gray;
 }
 
-tr .link{
+tr .link {
   text-decoration-line: none;
   color: rgba(0, 0, 0, 0.705);
   margin: 10px;
@@ -114,82 +125,77 @@ tr .link:hover {
   color: rgb(33, 2, 43);
 }
 
-.admin-container {
-  height: 600px;
+.admin-container,
+.edit-container {
+  height: fit-content;
   padding-top: 80px;
   display: flex;
   flex-direction: column;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
-
-.edit-container {
-  height: fit-content;
-  width: fit-content;
-  padding-top: 0px;
-  display: flex;
-  flex-direction: column;
-}
-
-.edit-container form{
-  width: fit-content;
-  padding-top: 0px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  margin-top: 5px;
-}
-
 
 .admin-container h2,
 .admin-container h6,
-.update-container h6 {
+.edit-container h6 {
   text-align: center;
 }
 
-.admin-container h2 {
+.admin-container h2,
+.edit-container h2 {
   color: rgba(0, 0, 0, 0.705);
   padding: 25px;
 }
 
-.admin-container form {
-  padding-top: 00px;
+.admin-container form,
+.edit-container form {
+  padding-top: 20px;
+  width: 450px;
   margin-left: 0;
   display: block;
   background-color: azure;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border-radius: 15px;
 }
 
-.admin-container input {
+.admin-container input,
+.edit-container input {
   display: block;
+  border: 1px solid rgb(212,212,212);
+  border-radius: 15px;
   width: 300px;
-  margin-left: 39%;
   font-size: small;
   text-indent: 5px;
+  margin-left: 15%;
 }
 
 .admin-container label,
-.admin-container span {
+.admin-container span,
+.edit-container label,
+.edit-container span {
   display: block;
   font-size: small;
-  margin-left: 39%;
   margin-top: 10px;
+  margin-left: 15%;
 }
 
 #admin-btn {
-  border: 1px solid rgba(0, 0, 0, 0.705);
-  border-radius: 10px;
+  border-radius: 15px;
+  border: 1px solid transparent;
   margin-bottom: 15px;
   margin-top: 15px;
-  color: rgba(0, 0, 0, 0.705);
-  background-color: transparent;
+  color: white;
+  background-color: #25D366;
   display: block;
   font-size: small;
-  margin-left: 39%;
+  margin-left: 15%;
+  width: 100px;
+  padding: 4px;
 }
 
-#admin-btn:hover {
-  border: 1px solid rgb(33, 2, 43);
-  color: rgb(33, 2, 43);
-}
 
 .display-data {
   height: fit-content;
@@ -218,9 +224,11 @@ tr .link:hover {
 #search {
   margin-bottom: 15px;
   width: 300px;
-  margin-left: 38.5%;
-  border: 1px solid whitesmoke;
+  border: 1px solid rgb(212,212,212);
+  border-radius: 15px;
   outline: none;
+  padding: 4px;
+  margin-left: 40%;
   /* margin-left: 19%; * for media query max-width 550px */
 }
 
@@ -245,37 +253,6 @@ input {
   border-radius: 5px;
 }
 
-#update {
-  background-color: transparent;
-  border: 1px solid #39a2ae;
-  color: black;
-  border-radius: 5px;
-}
-
-#update-wrapper {
-  height: fit-content;
-  width: 100%;
-  background-color: whitesmoke;
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-  font-size: small;
-}
-
-#update-form {
-  display: inline-block;
-  margin-left: 30px;
-}
-#update-form form {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  font-size: small;
-}
-#update-form form::placeholder {
-  text-indent: 5px;
-  font-size: small;
-}
 #data-reference {
   width: 950px;
   display: inline-block;
@@ -289,16 +266,6 @@ input {
   width: 300px;
   margin-top: 3px;
   display: block;
-}
-
-#dialog-close-btn {
-  display: inline-block;
-  width: fit-content;
-  margin-left: auto;
-  color: #eb5e55;
-  font-weight: 600;
-  border: 1px solid transparent;
-  background-color: transparent;
 }
 
 #final-update {
@@ -331,6 +298,7 @@ h4,
   border: 1px solid whitesmoke;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-left: 80px;
 }
 
@@ -378,26 +346,59 @@ tr img:hover {
   font-size: small;
 }
 
-#booking {
+.booking {
   border: 1px solid rgb(33, 2, 43);
   color: rgb(33, 2, 43);
   background-color: transparent;
   margin-left: 3px;
-  border-radius: 5px;
-  font-size: small;
+  border-radius: 15px;
+  font-size: 11px;
   margin-bottom: 10px;
 }
 
-#isAvailable {
-  background-color: rgb(21, 122, 21);
+.isAvailable {
+  background-color: #25D366;
   border: 1px solid transparent;
-  border-radius: 5px;
-  color: whitesmoke;
-  font-size: small;
+  border-radius: 15px;
+  color: white;
+  font-size: 11px;
   margin-bottom: 5px;
   margin-left: 80px;
 }
 
+.booking-wrapper{
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.my-booking{
+  height: 500px;
+  width: 400px;
+  background-color: azure;
+  border-radius: 15px;
+}
+
+.my-booking form{
+  display: flex;
+  flex-direction: column;
+}
+.my-booking label{
+  margin-left: 50px;
+  margin-top: 15px;
+}
+.my-booking input{
+  width: 300px;
+  margin-left: 50px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  border: 1px solid rgb(212,212,212);
+  text-indent: 10px;
+}
 .account-display {
   margin-top: 200px;
   margin-left: 35%;
@@ -449,7 +450,7 @@ tr img:hover {
   margin-bottom: 30px;
 }
 
-.account-form-wrapper form{
+.account-form-wrapper form {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -477,9 +478,8 @@ tr img:hover {
   list-style-type: none;
 }
 
-.list-wrapper{
-  padding-top: 120px;
-  width: fit-content;
+.list-wrapper {
+  padding-top: 80px;
+  width: 99%;
   height: fit-content;
 }
-

@@ -124,6 +124,7 @@ app.post("/login", async (req, res) => {
 //THE API ROUTES
 require("./routes/admin_route")(app);
 require("./routes/user_route")(app);
+require("./routes/booking_route")(app)
 
 //connection credentials
 

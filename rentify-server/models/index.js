@@ -8,4 +8,5 @@ db.url = dbConfig.url;
 db.properties = require("./admin_model")(mongoose);
 db.users = require("./user_model")(mongoose);
 db.login = require("./login")(mongoose)
+db.booking = require("./booking_model")(mongoose)
 module.exports = db;

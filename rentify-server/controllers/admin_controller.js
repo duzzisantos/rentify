@@ -3,13 +3,13 @@ const Property = db.properties;
 
 //Create
 exports.create = (req, res) => {
-  if (!req.body.propertyID) {
+  if (!req.body.ID) {
     res.status(500).send({ message: "Content cannot be empty!" });
     return;
   }
 
   const property = new Property({
-    propertyID: req.body.propertyID,
+    ID: req.body.ID,
     propertyName: req.body.propertyName,
     address: req.body.address,
     district: req.body.district,
@@ -41,7 +41,7 @@ exports.create = (req, res) => {
 //Read
 
 exports.findAll = (req, res) => {
-  const propertyID = req.body.propertyID;
+  const propertyID = req.body.id;
   var condition = propertyID
     ? { propertyID: { $regex: new RegExp(propertyID), $options: "gi" } }
     : {};

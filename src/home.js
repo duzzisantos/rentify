@@ -11,6 +11,7 @@ import {
   faWheelchair,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 library.add(faWifi, faParking, faWheelchair, faEye);
 
@@ -109,11 +110,11 @@ const Homepage = () => {
                       {item.bouncers}
                     </li>
                   </ul>
-                  <button id="isAvailable" key={item._id}>
+                  <button className="isAvailable">
                     Available
                   </button>
-                  <button id="booking" key={item._id}>
-                    Book
+                  <button className="booking">
+                    <Link to={`/booking/${item._id}`} className="links">Book</Link>
                   </button>
                 </div>
               );

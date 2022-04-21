@@ -8,7 +8,7 @@ import qs from "qs";
 
 const Admins = () => {
   const [createNew, setCreateNew] = useState({
-    propertyID: 0,
+    ID: 0,
     propertyName: "",
     address: "",
     district: "",
@@ -45,9 +45,9 @@ const Admins = () => {
         <input
           type="number"
           id="propID"
-          value={createNew.propertyID}
+          value={createNew.ID}
           onChange={(event) =>
-            setCreateNew({ ...createNew, propertyID: event.target.value })
+            setCreateNew({ ...createNew, ID: event.target.value })
           }
           name="propID"
         />
@@ -194,7 +194,7 @@ const Admins = () => {
           value={createNew.bouncers}
         />
         <button type="submit" id="admin-btn">
-          Create property
+          Create
         </button>
       </form>
     </div>
