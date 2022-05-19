@@ -12,7 +12,7 @@ const Tables = () => {
 
   const getData = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/properties");
+      const res = await axios.get("https://desolate-shore-41320.herokuapp.com/properties");
       console.log(res.statusText);
       setList(res.data);
     } catch (err) {
@@ -26,7 +26,7 @@ const Tables = () => {
 
   const handleDelete = (_id) => {
     axios
-      .delete("http://localhost:4000/api/properties" + _id)
+      .delete("https://desolate-shore-41320.herokuapp.com/properties" + _id)
       .then((res) => {
         console.log(res.statusText);
         getData();

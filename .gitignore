@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+#Ignores client components
+/src
+src
+
 # production
 /build
 

@@ -29,7 +29,7 @@ const Admins = () => {
 
   const handleSubmit = () => {
     axios
-      .post("http://localhost:4000/api/properties", qs.stringify(createNew))
+      .post("https://desolate-shore-41320.herokuapp.com/properties", qs.stringify(createNew))
       .then((response) => {
         console.log(response.status);
       })

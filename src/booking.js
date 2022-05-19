@@ -25,7 +25,7 @@ const Booking = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/properties/${params.ID}`)
+      .get(`https://desolate-shore-41320.herokuapp.com/properties/${params.ID}`)
       .then((res) => {
         console.log(res.statusText);
         const bookingData = res.data;

@@ -29,7 +29,7 @@ const EditProperty = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/properties/${params.ID}`)
+      .get(`https://desolate-shore-41320.herokuapp.com/properties/${params.ID}`)
       .then((res) => {
         console.log(params.ID);
         const propertyData = res.data;
@@ -57,7 +57,7 @@ const EditProperty = () => {
 
   const handleUpdate = () => {
     axios
-      .put(`http://localhost:4000/api/properties/${params.ID}`, {
+      .put(`https://desolate-shore-41320.herokuapp.com/properties/${params.ID}`, {
         ID,
         propertyName,
         address,

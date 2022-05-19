@@ -35,7 +35,7 @@ const Homepage = () => {
   const getResultsFromServer = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/properties",
+        "https://desolate-shore-41320.herokuapp.com/properties",
         display
       );
       setDisplay(response.data);
