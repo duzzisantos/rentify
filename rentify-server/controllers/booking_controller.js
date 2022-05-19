@@ -1,13 +1,13 @@
-const db = require("../models");
-const Booking = db.booking;
+const BookingSchema = require("../models/booking_model");
+// const bcrypt = require("bcryptjs");
 
-exports.create = (req, res) => {
-  if (!req.body) {
+exports.create = async (req, res) => {
+  if (!req.body.propertyName) {
     res.send({ message: "Booking is empty!" });
     return;
   }
 
-  const booking = new Booking({
+  const booking = new BookingSchema({
     ID: req.body.ID,
     propertyName: req.body.propertyName,
     price: req.body.price,
@@ -18,10 +18,16 @@ exports.create = (req, res) => {
     cvc: req.body.cvc,
   });
 
+// //   Hash the credit card details
+//   const salt = await bcrypt.genSalt(10);
+//   booking.creditCard = await bcrypt.hash(booking.creditCard, salt);
+//   booking.cvc = await bcrypt.hash(booking.cvc, salt);
+//   booking.expiryDate = await  bcrypt.hash(booking.expiryDate, salt);
+
   booking
     .save(booking)
-    .then((res) => {
-      res.json({ message: "Booking successfully created!" });
+    .then((data) => {
+      res.json(data)
       console.log("Booking successfully created!");
     })
     .catch((err) => {
@@ -34,7 +40,7 @@ exports.findAll = (req, res) => {
   var condition = propertyID
     ? { $regex: new RegExp(propertyID), $options: "gi" }
     : {};
-  Booking.find(condition)
+  BookingSchema.find(condition)
     .then((data) => {
       res.send(data);
     })
@@ -45,14 +51,14 @@ exports.findAll = (req, res) => {
 
 exports.findOne = (req, res) => {
   const id = req.params.id;
-  Booking.findById(id).then((data) => {
+  BookingSchema.findById(id).then((data) => {
     !data ? res.json({ message: "Vendor not found" }) : res.json(data);
   });
 };
 
 exports.update = (req, res) => {
   const id = req.params.id;
-  Booking.findByIdAndUpdate(id, { $set: req.body }, (err, data, next) => {
+  BookingSchema.findByIdAndUpdate(id, { $set: req.body }, (err, data, next) => {
     if (err) {
       console.log(err);
       return next(err);
@@ -65,7 +71,7 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   const id = req.params.id;
-  Booking.findByIdAndRemove(id)
+  BookingSchema.findByIdAndRemove(id)
     .then((data) => {
       !data
         ? res.status(404).json({ message: "Forbidden request" })
@@ -78,7 +84,7 @@ exports.delete = (req, res) => {
 };
 
 exports.deleteAll = (req, res) => {
-  Booking.deleteMany({})
+  BookingSchema.deleteMany({})
     .then((data) => {
       res.status(200).json({
         message: "All bookings have been deleted!",
